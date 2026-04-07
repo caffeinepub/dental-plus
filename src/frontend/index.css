@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== FONT FACES ===== */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* DENTAL PLUS — Clean Medical Teal Palette */
+    /* Primary: Deep Teal */
+    --brand-teal:     0.52 0.12 196;
+    --brand-teal-mid: 0.60 0.13 196;
+    --brand-teal-light: 0.90 0.06 196;
+    /* Accent: Warm Gold */
+    --brand-gold:     0.72 0.14 78;
+    --brand-gold-mid: 0.80 0.12 78;
+    /* Urgency Red */
+    --brand-urgent:   0.58 0.22 25;
+
+    --background: 0.98 0.005 196;
+    --foreground: 0.18 0.03 196;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 196;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 196;
+    --primary: 0.52 0.12 196;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.90 0.06 196;
+    --secondary-foreground: 0.30 0.08 196;
+    --muted: 0.94 0.02 196;
+    --muted-foreground: 0.50 0.04 196;
+    --accent: 0.72 0.14 78;
+    --accent-foreground: 0.15 0.02 78;
+    --destructive: 0.58 0.22 25;
+    --destructive-foreground: 1 0 0;
+    --border: 0.88 0.04 196;
+    --input: 0.92 0.03 196;
+    --ring: 0.52 0.12 196;
+    --chart-1: 0.52 0.12 196;
+    --chart-2: 0.72 0.14 78;
+    --chart-3: 0.65 0.16 142;
+    --chart-4: 0.58 0.22 25;
+    --chart-5: 0.68 0.10 230;
+    --sidebar: 0.26 0.08 196;
+    --sidebar-foreground: 0.95 0.02 196;
+    --sidebar-primary: 0.72 0.14 78;
+    --sidebar-primary-foreground: 0.15 0.02 78;
+    --sidebar-accent: 0.35 0.09 196;
+    --sidebar-accent-foreground: 0.95 0.02 196;
+    --sidebar-border: 0.35 0.09 196;
+    --sidebar-ring: 0.72 0.14 78;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ===== CUSTOM UTILITIES ===== */
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-brand-teal {
+    background-color: oklch(var(--brand-teal));
+  }
+  .bg-brand-teal-mid {
+    background-color: oklch(var(--brand-teal-mid));
+  }
+  .bg-brand-teal-light {
+    background-color: oklch(var(--brand-teal-light));
+  }
+  .bg-brand-gold {
+    background-color: oklch(var(--brand-gold));
+  }
+  .text-brand-teal {
+    color: oklch(var(--brand-teal));
+  }
+  .text-brand-gold {
+    color: oklch(var(--brand-gold));
+  }
+  .text-brand-urgent {
+    color: oklch(var(--brand-urgent));
+  }
+  .bg-brand-urgent {
+    background-color: oklch(var(--brand-urgent));
+  }
+  .border-brand-teal {
+    border-color: oklch(var(--brand-teal));
+  }
+  .border-brand-gold {
+    border-color: oklch(var(--brand-gold));
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      oklch(0.18 0.08 196 / 0.88) 0%,
+      oklch(0.30 0.10 196 / 0.70) 50%,
+      oklch(0.18 0.06 220 / 0.80) 100%
+    );
+  }
+
+  .section-pattern {
+    background-image: radial-gradient(
+      oklch(0.52 0.12 196 / 0.06) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .btn-primary {
+    background-color: oklch(var(--brand-teal));
+    color: oklch(1 0 0);
+    @apply font-semibold rounded-full px-7 py-3 transition-all duration-200;
+  }
+  .btn-primary:hover {
+    background-color: oklch(var(--brand-teal-mid));
+    @apply shadow-lg scale-105;
+  }
+
+  .btn-gold {
+    background-color: oklch(var(--brand-gold));
+    color: oklch(0.15 0.02 78);
+    @apply font-semibold rounded-full px-7 py-3 transition-all duration-200;
+  }
+  .btn-gold:hover {
+    background-color: oklch(var(--brand-gold-mid));
+    @apply shadow-lg scale-105;
+  }
+
+  .star-filled {
+    color: oklch(var(--brand-gold));
+  }
+
+  .gradient-section {
+    background: linear-gradient(
+      180deg,
+      oklch(0.26 0.08 196) 0%,
+      oklch(0.20 0.06 196) 100%
+    );
+  }
+}
